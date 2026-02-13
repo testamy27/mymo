@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22 Tháng Bên Nhau ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Quicksand:wght@300;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #1a0a14 0%, #2d1b2e 50%, #1a0a14 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Ảnh hình trái tim bay lên 2 bên */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart-photo {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            opacity: 0;
+            animation: floatUp 15s infinite ease-in-out;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.5);
+        }
+
+        .heart-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.6));
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        /* Responsive cho mobile - iPhone 13 Pro Max và các thiết bị tương tự */
+        @media (max-width: 768px) {
+            .heart-photo {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heart-photo {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(110vh) scale(0.8) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { 
+                filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.6)) brightness(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 15px rgba(255, 23, 68, 1)) brightness(1.3);
+            }
+        }
+
+        /* Phân bổ vị trí cho 20 ảnh - 10 bên trái, 10 bên phải */
+        .heart-photo:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .heart-photo:nth-child(2) { right: 5%; animation-delay: 0.8s; }
+        .heart-photo:nth-child(3) { left: 8%; animation-delay: 1.6s; }
+        .heart-photo:nth-child(4) { right: 8%; animation-delay: 2.4s; }
+        .heart-photo:nth-child(5) { left: 12%; animation-delay: 3.2s; }
+        .heart-photo:nth-child(6) { right: 12%; animation-delay: 4s; }
+        .heart-photo:nth-child(7) { left: 6%; animation-delay: 4.8s; }
+        .heart-photo:nth-child(8) { right: 6%; animation-delay: 5.6s; }
+        .heart-photo:nth-child(9) { left: 10%; animation-delay: 6.4s; }
+        .heart-photo:nth-child(10) { right: 10%; animation-delay: 7.2s; }
+        .heart-photo:nth-child(11) { left: 7%; animation-delay: 8s; }
+        .heart-photo:nth-child(12) { right: 7%; animation-delay: 8.8s; }
+        .heart-photo:nth-child(13) { left: 9%; animation-delay: 9.6s; }
+        .heart-photo:nth-child(14) { right: 9%; animation-delay: 10.4s; }
+        .heart-photo:nth-child(15) { left: 11%; animation-delay: 11.2s; }
+        .heart-photo:nth-child(16) { right: 11%; animation-delay: 12s; }
+        .heart-photo:nth-child(17) { left: 5%; animation-delay: 12.8s; }
+        .heart-photo:nth-child(18) { right: 5%; animation-delay: 13.6s; }
+        .heart-photo:nth-child(19) { left: 13%; animation-delay: 14.4s; }
+        .heart-photo:nth-child(20) { right: 13%; animation-delay: 15.2s; }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4em;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.8), 0 0 40px rgba(255, 107, 157, 0.5);
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px #ff6b9d, 0 0 40px #ff6b9d; }
+            50% { text-shadow: 0 0 30px #ff1744, 0 0 60px #ff1744; }
+        }
+
+        .header p {
+            font-size: 1.5em;
+            color: #ffc2d4;
+            font-weight: 300;
+        }
+
+        /* Section 1 - Counter */
+        .counter-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .counter-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            margin-bottom: 50px;
+            color: #ffc2d4;
+        }
+
+        .counters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .counter-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(255, 107, 157, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .counter-box:hover {
+            transform: translateY(-10px);
+            border-color: #ff6b9d;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+        }
+
+        .counter-number {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #ff6b9d;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .counter-label {
+            font-size: 1.2em;
+            color: #ffc2d4;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 80px;
+            color: #ffc2d4;
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 50px 0;
+        }
+
+        /* Đường timeline */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff6b9d, #c06c84);
+            border-radius: 2px;
+        }
+
+        /* Xe máy chạy */
+        .scooter {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3em;
+            animation: rideScooter 8s ease-in-out infinite;
+            filter: drop-shadow(0 5px 10px rgba(255, 107, 157, 0.6));
+            z-index: 10;
+        }
+
+        @keyframes rideScooter {
+            0% {
+                top: 0%;
+            }
+            100% {
+                top: 95%;
+            }
+        }
+
+        /* Timeline events */
+        .timeline-event {
+            position: relative;
+            margin: 60px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-event:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-event:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 0 30px;
+            border: 2px solid rgba(255, 107, 157, 0.3);
+            max-width: 45%;
+        }
+
+        .timeline-event:nth-child(odd) .timeline-content {
+            text-align: right;
+            margin-right: 60px;
+        }
+
+        .timeline-event:nth-child(even) .timeline-content {
+            text-align: left;
+            margin-left: 60px;
+        }
+
+        .timeline-date {
+            font-size: 1.1em;
+            color: #ff6b9d;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .timeline-text {
+            font-size: 1em;
+            color: #ffc2d4;
+            line-height: 1.6;
+        }
+
+        /* Dot trên timeline - Trái tim ghép đôi */
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.8));
+            z-index: 5;
+        }
+
+        .timeline-dot::before {
+            content: '💕';
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Letter Section */
+        .letter-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .letter-container {
+            max-width: 700px;
+            background: linear-gradient(to bottom, #f9f3e6, #f5e8d3);
+            padding: 60px 50px;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            border: 1px solid #d4af77;
+        }
+
+        .letter-container::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid #d4af77;
+            border-radius: 5px;
+            pointer-events: none;
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #8b4513;
+        }
+
+        .letter-date {
+            text-align: right;
+            font-size: 1em;
+            color: #a0826d;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .letter-body {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4em;
+            line-height: 2;
+            color: #5d4037;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .letter-signature {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            color: #8b4513;
+            margin-top: 40px;
+        }
+
+        .letter-stamp {
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+            width: 80px;
+            height: 80px;
+            border: 3px solid #c41e3a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(-15deg);
+            opacity: 0.7;
+        }
+
+        .letter-stamp span {
+            color: #c41e3a;
+            font-weight: 700;
+            font-size: 0.8em;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            color: #ff1744;
+            font-size: 1.5em;
+            animation: floatHeart 10s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Music Control */
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(255, 107, 157, 0.9);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.5);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            background: #ff1744;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5em; }
+            .counter-title, .timeline-title { font-size: 2em; }
+            .timeline-content {
+                max-width: 80%;
+                margin: 0 10px !important;
+            }
+            .timeline-event:nth-child(odd) .timeline-content,
+            .timeline-event:nth-child(even) .timeline-content {
+                text-align: center;
+            }
+            .letter-container {
+                padding: 40px 30px;
+            }
+            .letter-body {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ảnh hình trái tim bay lên 2 bên -->
+    <div class="floating-hearts">
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1Bn2baSrCwNbR1DohGczGL3WyS0HCXxY6&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=17bCuvEE8Chvj8UIlm35W-G7dKCHs1AVB&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1w_dW2Mk5OO_KnqHzoLezvZQ4yLHY8lQV&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1MgbBbdCY4-aw4hHzI56Ak9QVmFVPyjYO&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1SNLhFL6G59bqOi0GYnN8dYiLLbjfrvef&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1uYqWJ0_FbkHd5uKMFfyaMKrjTRxnU6MN&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=15A19-HU6UDkm9F67MipXe4TiPDBpFQL6&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1PTA5S4e7quP8Xo8ItBZgsGvE7OSMR7qt&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1yVsdiJah-t-M07qdGnnk89xtKYfhYUH9&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1xRp6bRBOr1EfcNcXUvXg3rAemFdkHKKZ&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1DG0assKUC1nfrfA5k_PZnZK3oB_GDOOY&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1GdeKi98TV1SWxtkhGWjSG3m5zL66sUON&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1_NGwmjSXpEDKoKwhtUMUHD6XleznLmiZ&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1jdNRxOYM1_p62i3AtMSaZcStR3BFd1rq&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1S_4U7_6AN37hHwA5KPc8NN7nYAycJlm6&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1wryWcNhW1QKWT2kXQmDxlrlNdexNpsFB&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=17VqZiezwqr8o7Z1JAmfEB0Tar_fuUG7z&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1zMxkx6Gj5EBOk9bUzaH9JcXhaDAFn0eE&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1VLd5JmSzZG7epV4zjg3PSlkTWBEmf-Tn&sz=w1200" alt=""></div>
+        <div class="heart-photo"><img src="https://drive.google.com/thumbnail?id=1XqxmAV63q9ihTFzcGIrILq2LccD8wdW_&sz=w1200" alt=""></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <section class="header">
+            <h1>22 Tháng Yêu Nhau</h1>
+            <p>14/04/2024 - 14/02/2026</p>
+        </section>
+
+        <!-- Section 1: Counter -->
+        <section class="counter-section">
+            <h2 class="counter-title">Thời Gian Bên Nhau</h2>
+            <div class="counters">
+                <div class="counter-box">
+                    <span class="counter-number">22</span>
+                    <span class="counter-label">Tháng</span>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-number" id="days">671</span>
+                    <span class="counter-label">Ngày</span>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-number" id="hours">16104</span>
+                    <span class="counter-label">Giờ</span>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-number" id="minutes">966240</span>
+                    <span class="counter-label">Phút</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Timeline -->
+        <section class="timeline-section">
+            <h2 class="timeline-title">Hành Trình Của Chúng Mình</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="scooter">🛵</div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">14/04/2024</div>
+                        <div class="timeline-text">Ngày chính thức bên nhau, không câu nào là yêu, nhưng hành động nào cũng là yêu 💕</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">14/05/2024</div>
+                        <div class="timeline-text">Kỷ niệm 1 tháng bên nhau, My tặng Mơ 1 bó hoa hồng màu xanh, 2 đứa ngại ngùng thẹn thùng đi "Chay garden" ăn anni 1 tháng, hí hí 🌹</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">30/11/2024</div>
+                        <div class="timeline-text">Đi du hí Thái Lan với nhau 🇹🇭✈️</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">14/02/2025</div>
+                        <div class="timeline-text">Mơ tặng My vòng chuỗi couple, Mơ đeo mỗi ngày, My luôn mang bên mình mỗi ngày 📿💕</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">14/04/2025</div>
+                        <div class="timeline-text">Kỷ niệm 1 năm bên nhau, Chúng mình đi ăn chay ở Sanité, My tặng Mơ 1 bó tulip màu tím, hôm đó Mơ đã cười rất tươi 🌷😊</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">30/04/2025</div>
+                        <div class="timeline-text">Chúng mình đi coi diễu bình với nhau, lần 1 thì nắng ơi là nắng, bị người ta đuổi, rồi lội bộ 3km về bệnh viện từ dũ mới book đc Xanh SM. Lần 2 thì tách đoàn, My ko hiểu ý Mơ, My đi coi với gia đình, ko đi với Mơ, Mơ tuổi thân Mơ khóc quá trời. huhu 😭</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">06/05/2025</div>
+                        <div class="timeline-text">Chúng mình đi Vũng Tàu ăn bù anni 1 năm, ngắm hoàng hôn, nấu hải sản, uống bia, quay timelapse, tâm sự đêm khuya. Mơ hỏi My "Mơ có tin My được không?" - ĐƯƠNG NHIÊN LÀ ĐƯỢC 100% TIN ĐƯỢC ĐÓ PHAN THỊ TRÚC MƠ 🌅🦞</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">06/2025</div>
+                        <div class="timeline-text">Chúng mình vét heo dọn ra nhà mặt phố, 3 tầng, có bãi giữ xe, chính thức làm ăn lớn. kkkk 🏠💪</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">20/07/2025</div>
+                        <div class="timeline-text">Chúng mình đi An Giang, vừa đi làm vừa đi chơi, đi vía bà về xém bay theo cát bụi, hehe, vui quá trời. 😄🌾</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">02/08/2025</div>
+                        <div class="timeline-text">Sinh nhật eiu của Myyyyy, nắng noi mà lén lút set up sinh nhật bất ngờ cho bé Mơ, bé Mơ khóc nữa. 🎂🎉</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">24/12/2025</div>
+                        <div class="timeline-text">Chúng mình đi chơi noel với nhau, Mơ đã rất vui, Mơ vui My cũng vui. 🎄🎅</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">11/01/2026</div>
+                        <div class="timeline-text">Chúng mình đi chụp hình tết cho Mơ, xinh xĩu, nhìn 1 cái là muốn ôm bế thêm 80 năm 📸💖</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">19/01/2026</div>
+                        <div class="timeline-text">Chúng mình đi chợ tết mini kkkkk 🧧🎊</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">07/02/2026</div>
+                        <div class="timeline-text">Chúng mình đi sắm đồ tết cho bé Mơ, để bé Mơ đi làm cô dâu ở hốc môn rồi về nhà ăn TẤT niênnnn. 👰‍♀️🎆</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026</div>
+                        <div class="timeline-text">Chúng mình đã ít đi chơi rất nhiều, dành thời gian để cày cuốc rất nhiều Mơ nhỉ, Mơ của My quá giỏi, quá khoẻ, Vuýppppppp 💪🔥</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Vintage Letter -->
+        <section class="letter-section">
+            <div class="letter-container">
+                <div class="letter-header">
+                    Gửi bé Mơ Yêu dấu Của mình ❤️
+                </div>
+                <div class="letter-date">
+                    Valentine's Day, 14/02/2026
+                </div>
+                <div class="letter-body">
+                    bé Ny ơi,
+                    <br><br>
+                    Đã 671 ngày trôi qua kể từ ngày đầu tiên chúng mình bên nhau. Mỗi ngày trôi qua, mình luôn hạnh phúc và biết ơn dạt dào vì có bé Ny ở bên đời
+                    <br><br>
+                    14/02 lần thứ 2 bên nhau nhưng lại không được bên nhau, nên mình làm cái này tặng MƠ và gửi cho Mơ, hy vọng Mơ đc vui 1 xíu nhoe.
+                    Gần 2 năm bên nhau, mỗi ngày thức dậy được thấy Mơ, đùa giỡn với Mơ là mình như được nạp full năng lượng cho cả ngày dài.
+                    20 tháng qua, Mình hiểu được mình cần phải yêu thương và chăm sóc bé Mơ như thế nào, cư xử như thế nào để Mơ ít buồn lòng hơn, để Mơ không phải khóc nữa. Vì Mơ, mình chắc chắn sẽ làm được
+                    Chưa bao giờ mình quên những hình ảnh Mơ nấu ăn cho mình, Mơ tất bật chuẩn bị đồ đi làm cho mình, Mơ sấy tóc xém cháy da đầu cho mình, Mơ lấy khẩu trang cho mình, lấy áo khoác cho mình, ép cần tây cho mình, massage cho mình, đắp mặt nạ cho mình, cạo gió cho mình. Không câu nào là yêu những tất cả đều là yêu là thương.
+                    Mình hay chọc Mơ không có nói yêu thương gì hết, nhưng trong lòng mình đã ngặp tràn yêu thương của Mơ cho.
+                    <br><br>
+                    6 tháng qua, mình thấy Mơ vất vả hơn nhiều, trộm vía được nhiều người biết đến, nhưng cũng vất vả quá, Mình xót lắm, mình nằm coi camera 3h 4h sáng Mơ lủi thủi dắt xe ra, thắp nhan cho ông địa, rồi làm cho khách..mình thương lắm. Mơ của mình thiệt là giỏi và nghị lực, Mình chỉ nguyện Mơ iu dấu thật nhiều sức khoẻ, để làm đẹp được cho nhiều người nữa.
+                    Nhìn thấy Mơ, My không cho phép mình lười biếng, My muốn cố gắng thật nhiều để xứng đáng với Mơ, nên Mơ thông cảm cho những ngày mình thức khuya nha, MƠ dậy sớm cày bữa thì My cũng thức khuya cày bừa cùng Mơ. Khi nào khá giả, ổn định hơn thì mình ngủ sớm cùng nhau nữa ha bé.
+                    <br><br>
+                    Năm mới sắp đến, năm cũ bước qua, mình chỉ biết nói cảm ơn Mơ, cảm ơn ông bà tổ tiên đã phù hộ cho 2 đứa mình.
+                    Mong sao 2 đứa mình sẽ vẫn bên nhau được dài lâu, chuyện gì cũng sẽ nói nhau nghe, lắng nghe và đồng cảm với nhau nhiều hơn, Mình sẽ cố gắng giúp Mơ xoa dịu thật nhiều tổn thương từ gia đình, để lúc nào Mơ cũng thật nhiều hạnh phúc và lan toả năng lượng tích cực đến mọi người.
+                    My luôn yêu thương Mơ nhiều thật nhiều mỗi ngày, nhiều hơn ngày hôm qua, trân trọng và bảo vệ Mơ đến khi còn có thể, nên Mơ hãy tin tưởng và an tâm ở My nha.. Dù tương lai có thế nào, My luôn muốn có Mơ bên cạnh, dù khó khăn thế nào, mình tin chỉ cần chúng mình còn bên nhau chuyện gì cũng sẽ vượt qua ha bé.
+                    <br><br>
+                    Yêu Mơ vô cùng! ❤️
+                </div>
+                <div class="letter-signature">
+                    Mãi yêu Mơ,<br>
+                    Lover ♥
+                </div>
+                <div class="letter-stamp">
+                    <span>LOVE<br>FOREVER</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://drive.google.com/uc?export=download&id=1U8QEGW2QgAwD2Ua9s1f0M9dQPsLgYqHy" type="audio/mpeg">
+    </audio>
+
+    <button class="music-control" id="musicBtn" onclick="toggleMusic()">
+        🎵 Nhạc
+    </button>
+
+    <script>
+        // Floating hearts
+        setInterval(() => {
+            let heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 12000);
+        }, 800);
+
+        // Counter animation
+        function animateCounter(id, start, end, duration) {
+            let element = document.getElementById(id);
+            let range = end - start;
+            let increment = end > start ? 1 : -1;
+            let stepTime = Math.abs(Math.floor(duration / range));
+            let current = start;
+            
+            let timer = setInterval(() => {
+                current += increment;
+                element.textContent = current.toLocaleString();
+                if (current == end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        // Calculate time difference
+        const startDate = new Date('2024-04-14');
+        const endDate = new Date('2026-02-14');
+        const diffTime = Math.abs(endDate - startDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        const diffHours = diffDays * 24;
+        const diffMinutes = diffHours * 60;
+
+        // Animate counters on scroll
+        let countersAnimated = false;
+        window.addEventListener('scroll', () => {
+            if (!countersAnimated) {
+                const counterSection = document.querySelector('.counter-section');
+                const rect = counterSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    animateCounter('days', 0, diffDays, 2000);
+                    animateCounter('hours', 0, diffHours, 2000);
+                    animateCounter('minutes', 0, diffMinutes, 2000);
+                    countersAnimated = true;
+                }
+            }
+        });
+
+        // Music control
+        const music = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                music.play();
+                isPlaying = true;
+                musicBtn.innerHTML = '🎵 Đang phát';
+            }
+        }, { once: true });
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                musicBtn.innerHTML = '🎵 Đang phát';
+                isPlaying = true;
+            } else {
+                music.pause();
+                musicBtn.innerHTML = '🔇 Tắt';
+                isPlaying = false;
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
