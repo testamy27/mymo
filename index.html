@@ -475,9 +475,39 @@
             }
         }
 
-        /* Music Control - Ẩn đi */
+        /* Music Control */
         .music-control {
-            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(255, 107, 157, 0.9);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.5);
+            z-index: 1000;
+            transition: all 0.3s;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            background: #ff1744;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(255, 107, 157, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 5px 30px rgba(255, 107, 157, 0.8);
+            }
         }
 
         /* Responsive */
@@ -792,47 +822,53 @@
             }
         });
 
-        // Music control - Autoplay khi trang load
+        // Music control - Tự động phát khi có tương tác
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         let isPlaying = false;
 
-        // Tự động phát nhạc khi trang load
+        // Thử phát nhạc ngay khi load (có thể bị chặn)
         window.addEventListener('load', function() {
-            // Thử phát nhạc ngay khi load
             music.play().then(() => {
                 isPlaying = true;
                 musicBtn.innerHTML = '🎵 Đang phát';
+                musicBtn.style.animation = 'none';
             }).catch(() => {
-                // Nếu bị chặn autoplay, chờ người dùng click
-                musicBtn.innerHTML = '🎵 Click để phát';
+                // Bị chặn autoplay - chờ người dùng tương tác
+                musicBtn.innerHTML = '🎵 Bấm để phát';
             });
         });
 
-        // Phát nhạc khi người dùng tương tác lần đầu (backup)
-        document.addEventListener('click', function() {
-            if (!isPlaying) {
+        // TẰT ĐỘNG phát nhạc khi người dùng click/touch/scroll BẤT KỲ ĐÂU
+        function tryPlayMusic() {
+            if (!isPlaying && music.paused) {
                 music.play().then(() => {
                     isPlaying = true;
                     musicBtn.innerHTML = '🎵 Đang phát';
-                }).catch(err => {
-                    console.log('Không thể phát nhạc:', err);
-                });
+                    musicBtn.style.animation = 'none';
+                }).catch(() => {});
             }
-        }, { once: true });
+        }
 
+        // Lắng nghe nhiều sự kiện
+        ['click', 'touchstart', 'scroll', 'keydown'].forEach(event => {
+            document.addEventListener(event, tryPlayMusic, { once: true, passive: true });
+        });
+
+        // Nút toggle nhạc
         function toggleMusic() {
             if (music.paused) {
                 music.play().then(() => {
                     musicBtn.innerHTML = '🎵 Đang phát';
+                    musicBtn.style.animation = 'none';
                     isPlaying = true;
                 }).catch(err => {
                     console.log('Lỗi phát nhạc:', err);
-                    musicBtn.innerHTML = '❌ Lỗi';
+                    musicBtn.innerHTML = '❌ Lỗi file nhạc';
                 });
             } else {
                 music.pause();
-                musicBtn.innerHTML = '🔇 Tắt';
+                musicBtn.innerHTML = '🔇 Đã tắt';
                 isPlaying = false;
             }
         }
