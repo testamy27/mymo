@@ -288,6 +288,57 @@
             margin: 0 30px;
             border: 2px solid rgba(255, 107, 157, 0.3);
             max-width: 45%;
+            position: relative;
+        }
+
+        /* Trái tim trang trí ở 4 góc */
+        .timeline-content::before,
+        .timeline-content::after {
+            content: '💕';
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.7;
+            z-index: 10;
+        }
+
+        .timeline-content::before {
+            top: -10px;
+            left: -10px;
+        }
+
+        .timeline-content::after {
+            top: -10px;
+            right: -10px;
+        }
+
+        /* Thêm 2 trái tim góc dưới */
+        .timeline-event::before,
+        .timeline-event::after {
+            content: '💕';
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.7;
+            z-index: 10;
+        }
+
+        .timeline-event:nth-child(odd)::before {
+            bottom: 10px;
+            right: calc(55% - 10px);
+        }
+
+        .timeline-event:nth-child(odd)::after {
+            bottom: 10px;
+            right: calc(55% + 280px);
+        }
+
+        .timeline-event:nth-child(even)::before {
+            bottom: 10px;
+            left: calc(55% - 10px);
+        }
+
+        .timeline-event:nth-child(even)::after {
+            bottom: 10px;
+            left: calc(55% + 280px);
         }
 
         .timeline-event:nth-child(odd) .timeline-content {
@@ -313,34 +364,18 @@
             line-height: 1.6;
         }
 
-        /* Dot trên timeline - Trái tim ghép đôi */
+        /* Dot trên timeline - Vòng tròn hồng */
         .timeline-dot {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.8));
+            width: 20px;
+            height: 20px;
+            background: #ff6b9d;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.8);
             z-index: 5;
-        }
-
-        .timeline-dot::before {
-            content: '💕';
-            animation: heartBeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartBeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
         }
 
         /* Letter Section */
@@ -449,27 +484,9 @@
             }
         }
 
-        /* Music Control */
+        /* Music Control - Ẩn đi */
         .music-control {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(255, 107, 157, 0.9);
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1.1em;
-            color: #fff;
-            font-weight: 700;
-            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.5);
-            z-index: 1000;
-            transition: all 0.3s;
-        }
-
-        .music-control:hover {
-            transform: scale(1.1);
-            background: #ff1744;
+            display: none;
         }
 
         /* Responsive */
@@ -692,16 +709,20 @@
                     Đã 671 ngày trôi qua kể từ ngày đầu tiên chúng mình bên nhau. Mỗi ngày trôi qua, mình luôn hạnh phúc và biết ơn dạt dào vì có bé Ny ở bên đời
                     <br><br>
                     14/02 lần thứ 2 bên nhau nhưng lại không được bên nhau, nên mình làm cái này tặng MƠ và gửi cho Mơ, hy vọng Mơ đc vui 1 xíu nhoe.
+                    <br><br>
                     Gần 2 năm bên nhau, mỗi ngày thức dậy được thấy Mơ, đùa giỡn với Mơ là mình như được nạp full năng lượng cho cả ngày dài.
-                    20 tháng qua, Mình hiểu được mình cần phải yêu thương và chăm sóc bé Mơ như thế nào, cư xử như thế nào để Mơ ít buồn lòng hơn, để Mơ không phải khóc nữa. Vì Mơ, mình chắc chắn sẽ làm được
+                    20 tháng qua, Mình hiểu được mình cần phải yêu thương và chăm sóc bé Mơ như thế nào, cư xử như thế nào để Mơ ít buồn lòng hơn, để Mơ không phải khóc nữa. Vì Mơ, mình chắc chắn sẽ làm được.
+                    <br><br>
                     Chưa bao giờ mình quên những hình ảnh Mơ nấu ăn cho mình, Mơ tất bật chuẩn bị đồ đi làm cho mình, Mơ sấy tóc xém cháy da đầu cho mình, Mơ lấy khẩu trang cho mình, lấy áo khoác cho mình, ép cần tây cho mình, massage cho mình, đắp mặt nạ cho mình, cạo gió cho mình. Không câu nào là yêu những tất cả đều là yêu là thương.
                     Mình hay chọc Mơ không có nói yêu thương gì hết, nhưng trong lòng mình đã ngặp tràn yêu thương của Mơ cho.
                     <br><br>
                     6 tháng qua, mình thấy Mơ vất vả hơn nhiều, trộm vía được nhiều người biết đến, nhưng cũng vất vả quá, Mình xót lắm, mình nằm coi camera 3h 4h sáng Mơ lủi thủi dắt xe ra, thắp nhan cho ông địa, rồi làm cho khách..mình thương lắm. Mơ của mình thiệt là giỏi và nghị lực, Mình chỉ nguyện Mơ iu dấu thật nhiều sức khoẻ, để làm đẹp được cho nhiều người nữa.
+                    <br><br>
                     Nhìn thấy Mơ, My không cho phép mình lười biếng, My muốn cố gắng thật nhiều để xứng đáng với Mơ, nên Mơ thông cảm cho những ngày mình thức khuya nha, MƠ dậy sớm cày bữa thì My cũng thức khuya cày bừa cùng Mơ. Khi nào khá giả, ổn định hơn thì mình ngủ sớm cùng nhau nữa ha bé.
                     <br><br>
                     Năm mới sắp đến, năm cũ bước qua, mình chỉ biết nói cảm ơn Mơ, cảm ơn ông bà tổ tiên đã phù hộ cho 2 đứa mình.
                     Mong sao 2 đứa mình sẽ vẫn bên nhau được dài lâu, chuyện gì cũng sẽ nói nhau nghe, lắng nghe và đồng cảm với nhau nhiều hơn, Mình sẽ cố gắng giúp Mơ xoa dịu thật nhiều tổn thương từ gia đình, để lúc nào Mơ cũng thật nhiều hạnh phúc và lan toả năng lượng tích cực đến mọi người.
+                    <br><br>
                     My luôn yêu thương Mơ nhiều thật nhiều mỗi ngày, nhiều hơn ngày hôm qua, trân trọng và bảo vệ Mơ đến khi còn có thể, nên Mơ hãy tin tưởng và an tâm ở My nha.. Dù tương lai có thế nào, My luôn muốn có Mơ bên cạnh, dù khó khăn thế nào, mình tin chỉ cần chúng mình còn bên nhau chuyện gì cũng sẽ vượt qua ha bé.
                     <br><br>
                     Yêu Mơ vô cùng! ❤️
@@ -718,7 +739,7 @@
     </div>
 
     <!-- Music -->
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop autoplay>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
@@ -738,30 +759,36 @@
             setTimeout(() => heart.remove(), 12000);
         }, 800);
 
-        // Counter animation
+        // Counter animation - Hiệu ứng đếm nhanh
         function animateCounter(id, start, end, duration) {
             let element = document.getElementById(id);
             let range = end - start;
-            let increment = end > start ? 1 : -1;
-            let stepTime = Math.abs(Math.floor(duration / range));
-            let current = start;
+            let startTime = null;
             
-            let timer = setInterval(() => {
-                current += increment;
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                
+                // Easing function để đếm mượt mà
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = Math.floor(start + (range * easeOutQuart));
+                
                 element.textContent = current.toLocaleString();
-                if (current == end) {
-                    clearInterval(timer);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    element.textContent = end.toLocaleString();
                 }
-            }, stepTime);
+            }
+            
+            requestAnimationFrame(step);
         }
 
-        // Calculate time difference
-        const startDate = new Date('2024-04-14');
-        const endDate = new Date('2026-02-14');
-        const diffTime = Math.abs(endDate - startDate);
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        const diffHours = diffDays * 24;
-        const diffMinutes = diffHours * 60;
+        // Số liệu cố định - không tính toán
+        const fixedDays = 671;
+        const fixedHours = 16104;
+        const fixedMinutes = 966240;
 
         // Animate counters on scroll
         let countersAnimated = false;
@@ -770,32 +797,52 @@
                 const counterSection = document.querySelector('.counter-section');
                 const rect = counterSection.getBoundingClientRect();
                 if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    animateCounter('days', 0, diffDays, 2000);
-                    animateCounter('hours', 0, diffHours, 2000);
-                    animateCounter('minutes', 0, diffMinutes, 2000);
+                    animateCounter('days', 0, fixedDays, 1500);
+                    animateCounter('hours', 0, fixedHours, 1800);
+                    animateCounter('minutes', 0, fixedMinutes, 2000);
                     countersAnimated = true;
                 }
             }
         });
 
-        // Music control
+        // Music control - Autoplay khi trang load
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         let isPlaying = false;
 
-        document.addEventListener('click', function() {
-            if (!isPlaying) {
-                music.play();
+        // Tự động phát nhạc khi trang load
+        window.addEventListener('load', function() {
+            // Thử phát nhạc ngay khi load
+            music.play().then(() => {
                 isPlaying = true;
                 musicBtn.innerHTML = '🎵 Đang phát';
+            }).catch(() => {
+                // Nếu bị chặn autoplay, chờ người dùng click
+                musicBtn.innerHTML = '🎵 Click để phát';
+            });
+        });
+
+        // Phát nhạc khi người dùng tương tác lần đầu (backup)
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                music.play().then(() => {
+                    isPlaying = true;
+                    musicBtn.innerHTML = '🎵 Đang phát';
+                }).catch(err => {
+                    console.log('Không thể phát nhạc:', err);
+                });
             }
         }, { once: true });
 
         function toggleMusic() {
             if (music.paused) {
-                music.play();
-                musicBtn.innerHTML = '🎵 Đang phát';
-                isPlaying = true;
+                music.play().then(() => {
+                    musicBtn.innerHTML = '🎵 Đang phát';
+                    isPlaying = true;
+                }).catch(err => {
+                    console.log('Lỗi phát nhạc:', err);
+                    musicBtn.innerHTML = '❌ Lỗi';
+                });
             } else {
                 music.pause();
                 musicBtn.innerHTML = '🔇 Tắt';
